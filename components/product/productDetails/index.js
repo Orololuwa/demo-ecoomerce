@@ -68,6 +68,7 @@ const ProductDetail = (props) => {
             className="product-image"
             alt={name}
             priority={true}
+            unoptimized
           />
         ))}
       </Carousel>

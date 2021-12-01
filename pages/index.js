@@ -33,10 +33,36 @@ const Home = (props) => {
         <Section style={{ paddingTop: "2.5rem", paddingBottom: "2.5rem" }}>
           <Carousel>
             <InnerCarouselItem>
-              <Image src="/discountBanner.gif" layout="fill" />
+              <Image
+                src="/img1.jpg"
+                layout="fill"
+                objectFit="fill"
+                priority={true}
+              />
             </InnerCarouselItem>
             <InnerCarouselItem>
-              <Image src="/sliderTwo.png" layout="fill" />
+              <Image
+                src="/img2.jpg"
+                layout="fill"
+                objectFit="fill"
+                priority={true}
+              />
+            </InnerCarouselItem>
+            <InnerCarouselItem>
+              <Image
+                src="/img3.jpg"
+                layout="fill"
+                objectFit="fill"
+                priority={true}
+              />
+            </InnerCarouselItem>
+            <InnerCarouselItem>
+              <Image
+                src="/img4.jpg"
+                layout="fill"
+                objectFit="fill"
+                priority={true}
+              />
             </InnerCarouselItem>
           </Carousel>
         </Section>

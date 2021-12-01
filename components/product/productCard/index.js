@@ -11,8 +11,8 @@ const ProductCard = ({ image, name, price, category, onClickHandler }) => (
         src={image}
         layout="fill"
         objectFit="contain"
-        loading="eager"
         priority={true}
+        unoptimized
       />
     </ImageCardCtx>
     <h6>{ellipsis(name, 16)}</h6>

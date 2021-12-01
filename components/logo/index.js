@@ -6,11 +6,12 @@ import router from "next/router";
 const Logo = (props) => (
   <LogoContext {...props}>
     <Image
-      src="/assets/shared/desktop/logo.svg"
+      src="/logo.png"
       alt="Roundup's Logo"
-      height={20}
+      height={40}
       width={100}
       quality={100}
+      objectFit="contain"
     />
   </LogoContext>
 );
