@@ -27,7 +27,7 @@ const Home = (props) => {
 
   return (
     <>
-      <Head title="Audiophile e-commerce website | Headphones" />
+      <Head title="Home" />
       <HomeCtx>
         <Hero title="Headphones" />
         <Section style={{ paddingTop: "2.5rem", paddingBottom: "2.5rem" }}>

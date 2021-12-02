@@ -4,7 +4,7 @@ import propTypes from "prop-types";
 const Head = ({ title }) => {
   return (
     <Head_>
-      <title>{title}</title>
+      <title>Ecommerce Demo Website | {title}</title>
       <meta name="viewport" content="initial-scale=1, width=device-width" />
     </Head_>
   );

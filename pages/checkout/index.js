@@ -100,10 +100,12 @@ const Checkout = () => {
     if (total === 0) return;
 
     if (state.paymentMethod === "cash") {
+      dispatch(clearCart());
       setShow(true);
     } else {
       initializePayment((reference) => {
         console.log(reference);
+        dispatch(clearCart());
         setShow(true);
       }, onClose);
     }
@@ -111,14 +113,13 @@ const Checkout = () => {
 
   //checkout success
   const checkoutSuccess = () => {
-    dispatch(clearCart());
     router.push("/");
   };
 
   return (
     <>
       <ThemeProvider theme={outerTheme}>
-        <Head title="Audiophile Ecommerce Website | checkout" />
+        <Head title="checkout" />
         <Hero />
         <CheckoutCtx>
           <Box sx={{ flexGrow: 1 }}>

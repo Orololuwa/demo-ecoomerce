@@ -2,24 +2,28 @@ import Section from "components/section";
 import ProductDetailsCtx from "./styled";
 import ProductDetail from "components/product/productDetails";
 import UserService from "config/services/userService";
+import Head from "components/head";
 
 const ProductDetails = ({ data }) => {
   let { name, details, default_img, price, brand_name, images, _id } = data;
   return (
-    <ProductDetailsCtx>
-      <Section className="hero" />
-      <Section>
-        <ProductDetail
-          name={name}
-          description={details}
-          image={default_img}
-          price={price}
-          brand_name={brand_name}
-          images={images}
-          _id={_id}
-        />
-      </Section>
-    </ProductDetailsCtx>
+    <>
+      <Head title={name} />
+      <ProductDetailsCtx>
+        <Section className="hero" />
+        <Section>
+          <ProductDetail
+            name={name}
+            description={details}
+            image={default_img}
+            price={price}
+            brand_name={brand_name}
+            images={images}
+            _id={_id}
+          />
+        </Section>
+      </ProductDetailsCtx>
+    </>
   );
 };
 
