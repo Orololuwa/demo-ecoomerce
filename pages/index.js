@@ -34,34 +34,38 @@ const Home = (props) => {
           <Carousel>
             <InnerCarouselItem>
               <Image
-                src="/img1.jpg"
+                src="/assets/shared/img1.jpg"
                 layout="fill"
                 objectFit="fill"
                 priority={true}
+                unoptimized
               />
             </InnerCarouselItem>
             <InnerCarouselItem>
               <Image
-                src="/img2.jpg"
+                src="/assets/shared/img2.jpg"
                 layout="fill"
                 objectFit="fill"
                 priority={true}
+                unoptimized
               />
             </InnerCarouselItem>
             <InnerCarouselItem>
               <Image
-                src="/img3.jpg"
+                src="/assets/shared/img3.jpg"
                 layout="fill"
                 objectFit="fill"
                 priority={true}
+                unoptimized
               />
             </InnerCarouselItem>
             <InnerCarouselItem>
               <Image
-                src="/img4.jpg"
+                src="/assets/shared/img4.jpg"
                 layout="fill"
                 objectFit="fill"
                 priority={true}
+                unoptimized
               />
             </InnerCarouselItem>
           </Carousel>
