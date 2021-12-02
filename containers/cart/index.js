@@ -43,9 +43,19 @@ const Cart = () => {
           </p>
         </div>
         <div className="body">
-          {productsInCart.map((product) => (
-            <CartItem product={product} key={product.id} />
-          ))}
+          {productsInCart.map((product, idx) => {
+            const { name, _id, price, count, images } = product;
+            return (
+              <CartItem
+                name={name}
+                _id={_id}
+                price={price}
+                count={count}
+                images={images}
+                key={idx}
+              />
+            );
+          })}
           <div className="totals">
             <p>TOTAL</p>
             <h6>$ {currencyFormatter(total)}</h6>

@@ -202,15 +202,19 @@ const Checkout = () => {
                     <h3>summary</h3>
                   </div>
                   <div className="body">
-                    {productsInCart.map((product) => (
-                      <CheckoutItem
-                        value={product.count}
-                        src={product.image.mobile}
-                        slug={product.slug}
-                        price={product.price}
-                        key={product.id}
-                      />
-                    ))}
+                    {productsInCart.map((product, idx) => {
+                      const { name, _id, price, count, images } = product;
+                      return (
+                        <CheckoutItem
+                          name={name}
+                          _id={_id}
+                          price={price}
+                          value={count}
+                          images={images}
+                          key={idx}
+                        />
+                      );
+                    })}
                     <div style={{ margin: "3.5rem 0" }}>
                       <div className="totals">
                         <p>TOTAL</p>

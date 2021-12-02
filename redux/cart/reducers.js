@@ -24,7 +24,7 @@ const CartReducer = (state = initState, action) => {
       const cart = state.products;
       product.count = count;
       const productIndex = cart.findIndex(
-        (element) => element.id === product.id
+        (element) => element._id === product._id
       );
       if (productIndex < 0) {
         cart.push(product);

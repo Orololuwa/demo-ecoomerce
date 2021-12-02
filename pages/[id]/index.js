@@ -4,7 +4,7 @@ import ProductDetail from "components/product/productDetails";
 import UserService from "config/services/userService";
 
 const ProductDetails = ({ data }) => {
-  let { name, details, default_img, price, brand_name, images } = data;
+  let { name, details, default_img, price, brand_name, images, _id } = data;
   return (
     <ProductDetailsCtx>
       <Section className="hero" />
@@ -16,6 +16,7 @@ const ProductDetails = ({ data }) => {
           price={price}
           brand_name={brand_name}
           images={images}
+          _id={_id}
         />
       </Section>
     </ProductDetailsCtx>

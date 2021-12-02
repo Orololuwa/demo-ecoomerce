@@ -6,25 +6,13 @@ import Button from "components/Button";
 import Image from "next/image";
 import { currencyFormatter } from "utilities";
 import { InputNumber } from "components/input";
-import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "redux/cart/actionCreators";
 import Carousel from "containers/homecarousel";
 
 const ProductDetail = (props) => {
-  const {
-    idx,
-    name,
-    description,
-    image,
-    images,
-    price,
-    brand_name,
-    includes,
-    product,
-  } = props;
+  const { name, description, images, price, brand_name, _id } = props;
 
-  const inputRef = useRef();
   const dispatch = useDispatch();
 
   const [value, setValue] = useState(0);
@@ -47,6 +35,7 @@ const ProductDetail = (props) => {
 
   const handleClick = () => {
     if (value === 0) return;
+    const product = { name, description, images, price, brand_name, _id };
     dispatch(addToCart(product, value));
   };
 
@@ -99,7 +88,7 @@ const ProductDetail = (props) => {
 };
 
 ProductDetail.propTypes = {
-  idx: propTypes.number,
+  _id: propTypes.string,
   name: propTypes.string,
   description: propTypes.string,
   image: propTypes.string,

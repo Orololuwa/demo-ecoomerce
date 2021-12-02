@@ -4,14 +4,16 @@ import Image from "next/image";
 import CartItemCtx from "./styled";
 import { InputNumber } from "components/input";
 import { updateCart } from "redux/cart/actionCreators";
-import { currencyFormatter, getSlugAbbrev } from "utilities";
+import { currencyFormatter, ellipsis } from "utilities";
 import propTypes from "prop-types";
 
-const CartItem = ({ product, checkout }) => {
+const CartItem = (props) => {
+  const { name, _id, price, count, images, checkout } = props;
   const dispatch = useDispatch();
-  const [value, setValue] = useState(product.count);
+  const [value, setValue] = useState(count);
 
   useEffect(() => {
+    const product = { name, _id, price, count, images, checkout };
     dispatch(updateCart(product, value));
   }, [value]);
 
@@ -32,17 +34,12 @@ const CartItem = ({ product, checkout }) => {
   };
 
   return (
-    <CartItemCtx key={product.id}>
+    <CartItemCtx>
       <div className="product-info">
-        <Image
-          src={product.image.mobile}
-          width={50}
-          height={50}
-          className="image"
-        />
+        <Image src={images[0]} width={50} height={50} className="image" />
         <span>
-          <h5>{getSlugAbbrev(product.slug)}</h5>
-          <p>$ {currencyFormatter(product.price)}</p>
+          <h5>{ellipsis(name, 12)}</h5>
+          <p>$ {currencyFormatter(price)}</p>
         </span>
       </div>
       {!checkout && (
@@ -58,7 +55,11 @@ const CartItem = ({ product, checkout }) => {
 };
 
 CartItem.propTypes = {
-  product: propTypes.object,
+  name: propTypes.string,
+  _id: propTypes.string,
+  price: propTypes.number,
+  count: propTypes.number,
+  images: propTypes.arrayOf(propTypes.string),
   checkout: propTypes.any,
 };
 
