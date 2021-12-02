@@ -21,6 +21,7 @@ const Modal = (props) => {
 
 Modal.propTypes = {
   onClose: propTypes.func,
+  show: propTypes.bool,
 };
 
 export default Modal;
