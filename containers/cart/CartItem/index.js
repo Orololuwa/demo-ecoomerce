@@ -39,7 +39,9 @@ const CartItem = (props) => {
         <Image src={images[0]} width={50} height={50} className="image" />
         <span>
           <h5>{ellipsis(name, 12)}</h5>
-          <p>$ {currencyFormatter(price)}</p>
+          <p style={{ fontWeight: "600" }}>
+            {currencyFormatter(+price, "NGN")}
+          </p>
         </span>
       </div>
       {!checkout && (

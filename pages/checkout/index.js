@@ -35,7 +35,7 @@ const Checkout = () => {
     total: state.cart.total,
   }));
 
-  let vat = Math.round(0.15 * total);
+  let vat = Math.round(0.015 * total);
   const shipping = 50;
   let grandTotal = total + shipping + vat;
 
@@ -218,20 +218,20 @@ const Checkout = () => {
                     <div style={{ margin: "3.5rem 0" }}>
                       <div className="totals">
                         <p>TOTAL</p>
-                        <h6>$ {currencyFormatter(total)}</h6>
+                        <h6>{currencyFormatter(total, "NGN")}</h6>
                       </div>
                       <div className="totals">
                         <p>SHIPPING</p>
-                        <h6>$ {currencyFormatter(shipping)}</h6>
+                        <h6>{currencyFormatter(shipping, "NGN")}</h6>
                       </div>
                       <div className="totals">
                         <p>VAT (INCLUDED)</p>
-                        <h6>$ {vat}</h6>
+                        <h6>{currencyFormatter(vat, "NGN")}</h6>
                       </div>
                       <div className="totals">
                         <p>GRAND TOTAL</p>
                         <h6 className="totals-grand">
-                          $ {currencyFormatter(grandTotal)}
+                          {currencyFormatter(grandTotal, "NGN")}
                         </h6>
                       </div>
                     </div>

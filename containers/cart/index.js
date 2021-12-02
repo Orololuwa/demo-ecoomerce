@@ -58,7 +58,7 @@ const Cart = () => {
           })}
           <div className="totals">
             <p>TOTAL</p>
-            <h6>$ {currencyFormatter(total)}</h6>
+            <h6>{currencyFormatter(+total, "NGN")}</h6>
           </div>
         </div>
         <div className="footer">

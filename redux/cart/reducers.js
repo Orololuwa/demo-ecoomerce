@@ -1,3 +1,4 @@
+import LocalStorage from "utilities/localstorage";
 import types from "./types";
 
 const {
@@ -28,8 +29,10 @@ const CartReducer = (state = initState, action) => {
       );
       if (productIndex < 0) {
         cart.push(product);
+        LocalStorage.set("cart", cart);
       } else {
         cart[productIndex] = product;
+        LocalStorage.set("cart", cart);
       }
       return {
         ...state,
@@ -42,12 +45,14 @@ const CartReducer = (state = initState, action) => {
       );
       const filteredCart = [...state.products];
       filteredCart.splice(filteredCartIndex, 1);
+      LocalStorage.set("cart", filteredCart);
 
       return {
         ...state,
         products: filteredCart,
       };
     case CLEAR_ALL:
+      LocalStorage.set("cart", []);
       return {
         ...state,
         products: [],
