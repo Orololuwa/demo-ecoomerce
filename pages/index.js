@@ -34,7 +34,7 @@ const Home = (props) => {
           <Carousel>
             <InnerCarouselItem>
               <Image
-                src="/assets/shared/img1.jpg"
+                src="/assets/shared/Img1.jpg"
                 layout="fill"
                 objectFit="fill"
                 priority={true}
@@ -43,7 +43,7 @@ const Home = (props) => {
             </InnerCarouselItem>
             <InnerCarouselItem>
               <Image
-                src="/assets/shared/img2.jpg"
+                src="/assets/shared/Img2.jpg"
                 layout="fill"
                 objectFit="fill"
                 priority={true}
@@ -52,7 +52,7 @@ const Home = (props) => {
             </InnerCarouselItem>
             <InnerCarouselItem>
               <Image
-                src="/assets/shared/img3.jpg"
+                src="/assets/shared/Img3.jpg"
                 layout="fill"
                 objectFit="fill"
                 priority={true}
@@ -61,7 +61,7 @@ const Home = (props) => {
             </InnerCarouselItem>
             <InnerCarouselItem>
               <Image
-                src="/assets/shared/img4.jpg"
+                src="/assets/shared/Img4.jpg"
                 layout="fill"
                 objectFit="fill"
                 priority={true}
