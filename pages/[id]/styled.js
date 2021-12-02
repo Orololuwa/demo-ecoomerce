@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const ProductDetailsCtx = styled.div`
   .hero {
-    background: ${({ theme }) => theme.colors.gray[900]};
+    background: ${({ theme }) => theme.colors.orange[300]};
     padding: 0 5rem 5.5rem 5rem;
 
     @media only screen and (max-width: ${({ theme }) => theme.breakpoints.lg}) {

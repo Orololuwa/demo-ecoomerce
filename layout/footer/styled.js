@@ -3,7 +3,7 @@ import Section from "components/section";
 import Flex from "components/flex";
 
 const FooterCtx = styled(Section)`
-  background: ${({ theme }) => theme.colors.gray[900]};
+  background: ${({ theme }) => theme.colors.orange[300]};
 
   color: ${({ theme }) => theme.colors.white};
 `;

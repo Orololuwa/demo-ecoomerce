@@ -26,7 +26,7 @@ const CartButtonCtx = styled.div`
     top: 0;
     right: 0;
     transform: translate(25%, -25%);
-    background: ${({ theme }) => theme.colors.orange[400]};
+    background: ${({ theme }) => theme.colors.gray[900]};
     padding: 2.5px;
     width: 12.5px;
     height: 12.5px;
