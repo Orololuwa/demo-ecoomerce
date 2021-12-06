@@ -10,20 +10,40 @@ import Carousel from "containers/homecarousel";
 import router from "next/router";
 import Image from "next/image";
 import InnerCarouselItem from "containers/homecarousel/styled";
+import { width } from "@mui/system";
+import { isError, useQuery } from "react-query";
+import Backdrop from "components/backdrop";
+import Loading from "components/Loading";
 
 const Home = (props) => {
-  const { data } = props;
+  //const [data, setData] = useState(undefined);
   const pageSize = 16;
+  const [totalCount, setTotalCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [products, setProducts] = useState(data.slice(0, pageSize));
+  const { isLoading, error, data, isFetching } = useQuery(
+    ["repoData", currentPage],
+    async () => {
+      const firstPageIndex = (currentPage - 1) * pageSize;
+      const lastPageIndex = firstPageIndex + pageSize;
+      const res = await UserService.get("/products");
+      window.scrollTo(0, 0);
+      setTotalCount(res.data.length);
+      return res.data.slice(firstPageIndex, lastPageIndex);
+    },
+    {
+      keepPreviousData: true,
+    }
+  );
 
-  useEffect(() => {
-    const firstPageIndex = (currentPage - 1) * pageSize;
-    const lastPageIndex = firstPageIndex + pageSize;
-    setProducts(data.slice(firstPageIndex, lastPageIndex));
-    window.scrollTo(0, 0);
-  }, [currentPage]);
+  // useEffect(async () => {
+  //   const firstPageIndex = (currentPage - 1) * pageSize;
+  //   const lastPageIndex = firstPageIndex + pageSize;
+  //   const res = await UserService.get("/products");
+  //   setTotalCount(res.data.length);
+  //   setData(res.data.slice(firstPageIndex, lastPageIndex));
+  //   window.scrollTo(0, 0);
+  // }, [currentPage]);
 
   return (
     <>
@@ -70,45 +90,59 @@ const Home = (props) => {
             </InnerCarouselItem>
           </Carousel>
         </Section>
-        <Section className="products">
-          {products.map((product, idx) => {
-            const { name, _id, default_img, price, category_name } = product;
-            return (
-              <ProductCard
-                name={name}
-                image={default_img}
-                key={_id}
-                category={category_name}
-                price={price}
-                onClickHandler={() => router.push(`/${_id}`)}
-              />
-            );
-          })}
-        </Section>
-        <Section style={{ paddingTop: "0", paddingBottom: "0" }}>
-          <Pagination
-            className="pagination-bar"
-            currentPage={currentPage}
-            totalCount={data.length}
-            pageSize={pageSize}
-            onPageChange={(page) => setCurrentPage(page)}
-          />
-        </Section>
+        {totalCount && (
+          <Section style={{ paddingTop: "0", paddingBottom: "0" }}>
+            <Pagination
+              className="pagination-bar"
+              currentPage={currentPage}
+              totalCount={totalCount}
+              pageSize={pageSize}
+              onPageChange={(page) => setCurrentPage(page)}
+            />
+          </Section>
+        )}
+        {data && (
+          <Section className="products">
+            {data.map((product, idx) => {
+              const { name, _id, default_img, price, category_name } = product;
+              return (
+                <ProductCard
+                  name={name}
+                  image={default_img}
+                  key={_id}
+                  category={category_name}
+                  price={price}
+                  onClickHandler={() => router.push(`/${_id}`)}
+                />
+              );
+            })}
+          </Section>
+        )}
+        {totalCount && (
+          <Section style={{ paddingTop: "0", paddingBottom: "0" }}>
+            <Pagination
+              className="pagination-bar"
+              currentPage={currentPage}
+              totalCount={totalCount}
+              pageSize={pageSize}
+              onPageChange={(page) => setCurrentPage(page)}
+            />
+          </Section>
+        )}
       </HomeCtx>
+      {isFetching && (
+        <Backdrop>
+          <Loading />
+        </Backdrop>
+      )}
+      {isLoading && (
+        <Backdrop>
+          <Loading />
+        </Backdrop>
+      )}
+      {error && <div>{error.message}</div>}
     </>
   );
 };
 
 export default Home;
-
-export const getStaticProps = async () => {
-  const res = await UserService.get("/products");
-  const data = res.data;
-
-  return {
-    props: {
-      data,
-    },
-    revalidate: 3600,
-  };
-};

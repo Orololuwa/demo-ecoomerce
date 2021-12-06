@@ -5,17 +5,22 @@ import GlobalStyle from "../styles/Global";
 import Content from "layout/content";
 import { wrapper } from "redux/store";
 import Footer from "layout/footer";
+import { QueryClientProvider, QueryClient } from "react-query";
+
+const queryClient = new QueryClient();
 
 function App({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Header />
-      <Content>
-        <Component {...pageProps} />
-      </Content>
-      <Footer />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header />
+        <Content>
+          <Component {...pageProps} />
+        </Content>
+        <Footer />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 

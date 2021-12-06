@@ -16,8 +16,11 @@ const BackdropCtx = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 50000;
-  background: ${({ theme }) => theme.colors.gray[900]}77;
+  background: ${({ theme }) => theme.colors.gray[900]}54;
   animation: ${fadeIn} 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default BackdropCtx;
