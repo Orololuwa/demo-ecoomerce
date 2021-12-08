@@ -30,10 +30,10 @@ const ProductDetails = ({ data }) => {
 export default ProductDetails;
 
 export const getStaticPaths = async () => {
-  const res = await UserService.get("/products");
-  const paths = res.data.map((product) => ({
+  const res = await UserService.get("/products.json");
+  const paths = res.data.map((_, idx) => ({
     params: {
-      id: product._id,
+      id: idx.toString(),
     },
   }));
 
@@ -44,8 +44,8 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const res = await UserService.get(`/new_product/getProduct/${params.id}`);
-  const data = res.data.product;
+  const res = await UserService.get(`/products/${params.id}.json`);
+  const data = res.data;
 
   return {
     props: {

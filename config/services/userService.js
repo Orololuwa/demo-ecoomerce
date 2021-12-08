@@ -1,7 +1,7 @@
 import axios from "axios";
 // import { getItem } from "../../utility/localStorageControl";
 
-const API_ENDPOINT = "http://178.62.104.60:3001";
+const API_ENDPOINT = "https://orololuwa-52de9-default-rtdb.firebaseio.com";
 
 const authHeader = () => ({
   Authorization: `Bearer ${getItem("access_token")}`,

@@ -26,7 +26,7 @@ const Home = (props) => {
     async () => {
       const firstPageIndex = (currentPage - 1) * pageSize;
       const lastPageIndex = firstPageIndex + pageSize;
-      const res = await UserService.get("/products");
+      const res = await UserService.get("/products.json");
       window.scrollTo(0, 0);
       setTotalCount(res.data.length);
       return res.data.slice(firstPageIndex, lastPageIndex);
@@ -112,7 +112,7 @@ const Home = (props) => {
                   key={_id}
                   category={category_name}
                   price={price}
-                  onClickHandler={() => router.push(`/${_id}`)}
+                  onClickHandler={() => router.push(`/${idx}`)}
                 />
               );
             })}
