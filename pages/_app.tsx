@@ -6,19 +6,32 @@ import Content from "layout/content";
 import { wrapper } from "redux/store";
 import Footer from "layout/footer";
 import { QueryClientProvider, QueryClient } from "react-query";
+import type { AppProps /*, AppContext */ } from "next/app";
+import { createTheme } from "@mui/material";
+import { ThemeProvider as MUIProvider } from "@mui/material";
 
 const queryClient = new QueryClient();
 
-function App({ Component, pageProps }) {
+const outerTheme = createTheme({
+  palette: {
+    primary: {
+      main: theme.colors.green[500],
+    },
+  },
+});
+
+function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header />
-        <Content>
-          <Component {...pageProps} />
-        </Content>
-        <Footer />
+        <MUIProvider theme={outerTheme}>
+          <GlobalStyle />
+          <Header />
+          <Content>
+            <Component {...pageProps} />
+          </Content>
+          <Footer />
+        </MUIProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );

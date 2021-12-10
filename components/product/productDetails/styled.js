@@ -20,7 +20,7 @@ const ProductDetailCtx = styled.div`
     h6 {
       letter-spacing: 0.5rem;
       font-weight: 400;
-      color: ${({ theme }) => theme.colors.orange[300]};
+      color: ${({ theme }) => theme.colors.green[300]};
       font-size: ${({ theme }) => theme.typeScale.bodyText4};
       margin: 0;
     }

@@ -21,7 +21,7 @@ const CartButton = () => {
         {cartLength}
       </div>
       <IoCartOutline
-        color={theme.colors.white}
+        color={theme.colors.gray[700]}
         size={25}
         style={{ cursor: "pointer" }}
         onClick={toggleCartDisplay}

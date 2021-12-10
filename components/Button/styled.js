@@ -5,13 +5,13 @@ const ButtonCtx = styled.button`
     variant === "outline"
       ? "transparent"
       : variant === "filled"
-      ? theme.colors[colorScheme][400]
+      ? theme.colors[colorScheme][500]
       : variant === "ghost"
       ? "transparent"
       : theme.colors[colorScheme][500]};
   color: ${({ colorScheme, variant, theme, loading }) =>
     loading && variant === "filled"
-      ? theme.colors[colorScheme][400]
+      ? theme.colors[colorScheme][500]
       : !loading && variant === "filled"
       ? theme.colors.white
       : (loading && variant === "outline") || (loading && variant === "ghost")
@@ -22,7 +22,7 @@ const ButtonCtx = styled.button`
   border: 1px solid
     ${({ colorScheme, variant, theme }) =>
       variant === "filled"
-        ? theme.colors[colorScheme][400]
+        ? theme.colors[colorScheme][500]
         : variant === "outline"
         ? theme.colors[colorScheme][900]
         : variant === "ghost"

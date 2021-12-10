@@ -13,8 +13,8 @@ const PaginationCtx = styled.ul`
     width: 32px;
     text-align: center;
     margin: auto 4px;
-    background: ${({ theme }) => theme.colors[theme.colors.primary][50]}66;
-    color: ${({ theme }) => theme.colors[theme.colors.primary][200]};
+    background: ${({ theme }) => theme.colors[theme.colors.primary][200]}66;
+    color: ${({ theme }) => theme.colors[theme.colors.primary][500]};
     display: flex;
     box-sizing: border-box;
     align-items: center;
@@ -30,17 +30,17 @@ const PaginationCtx = styled.ul`
     &.dots:hover {
       cursor: default;
       border: 0.5px solid
-        ${({ theme }) => theme.colors[theme.colors.primary][200]};
+        ${({ theme }) => theme.colors[theme.colors.primary][500]};
     }
     &:hover {
       cursor: pointer;
       border: 0.5px solid
-        ${({ theme }) => theme.colors[theme.colors.primary][200]};
+        ${({ theme }) => theme.colors[theme.colors.primary][500]};
     }
 
     &.selected {
       background-color: ${({ theme }) =>
-        theme.colors[theme.colors.primary][200]};
+        theme.colors[theme.colors.primary][500]};
       color: ${({ theme }) => theme.colors.white};
     }
 
@@ -54,9 +54,9 @@ const PaginationCtx = styled.ul`
         width: 0.4em;
         height: 0.4em;
         border-right: 0.12em solid
-          ${({ theme }) => theme.colors[theme.colors.primary][200]};
+          ${({ theme }) => theme.colors[theme.colors.primary][500]};
         border-top: 0.12em solid
-          ${({ theme }) => theme.colors[theme.colors.primary][200]};
+          ${({ theme }) => theme.colors[theme.colors.primary][500]};
       }
 
       &.left {
@@ -73,9 +73,9 @@ const PaginationCtx = styled.ul`
 
       .arrow::before {
         border-right: 0.12em solid
-          ${({ theme }) => theme.colors[theme.colors.primary][200]};
+          ${({ theme }) => theme.colors[theme.colors.primary][500]};
         border-top: 0.12em solid
-          ${({ theme }) => theme.colors[theme.colors.primary][200]};
+          ${({ theme }) => theme.colors[theme.colors.primary][500]};
       }
 
       &:hover {

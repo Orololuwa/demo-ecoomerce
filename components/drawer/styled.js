@@ -18,7 +18,7 @@ const DrawerCtx = styled.div`
   height: ${({ placement }) =>
     placement === "bottom" || placement === "top" ? "25rem" : "100vh"};
   background: ${({ theme, color }) =>
-    color ? theme.colors[color][900] : theme.colors.white};
+    color ? theme.colors[color][800] : theme.colors.white};
   animation: ${slideInLeft} 0.2s;
   padding: 1rem;
 `;

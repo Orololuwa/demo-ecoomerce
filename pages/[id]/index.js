@@ -10,7 +10,6 @@ const ProductDetails = ({ data }) => {
     <>
       <Head title={name} />
       <ProductDetailsCtx>
-        <Section className="hero" />
         <Section>
           <ProductDetail
             name={name}

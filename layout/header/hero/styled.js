@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Section from "components/section";
 
 const HeroCtx = styled(Section)`
-  background: ${({ theme }) => theme.colors.orange[300]};
+  //background: ${({ theme }) => theme.colors.green[500]};
   color: ${({ theme }) => theme.colors.white};
   padding-top: 0;
   padding-bottom: 6.5rem;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 const ProductCardCtx = styled.div`
   text-align: center;
   button {
-    width: 80%;
+    width: 100%;
   }
 
   .price {

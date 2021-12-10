@@ -75,7 +75,6 @@ const ProductDetail = (props) => {
           />
           <Button
             variant="filled"
-            colorScheme="orange"
             onClick={handleClick}
             disabled={value === 0}
           >

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Section from "components/section";
 
 export const Hero = styled.div`
-  background: ${({ theme }) => theme.colors.orange[300]};
+  background: ${({ theme }) => theme.colors.green[300]};
   padding: 0 5rem 5.5rem 5rem;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoints.lg}) {
@@ -35,7 +35,7 @@ export const FormWrapper = styled.div`
   .checkout-subheading {
     font-weight: 400;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.colors.orange[200]};
+    color: ${({ theme }) => theme.colors.green[300]};
   }
 
   .cart {
@@ -61,7 +61,7 @@ export const FormWrapper = styled.div`
         }
 
         &-grand {
-          color: ${({ theme }) => theme.colors.orange[200]};
+          color: ${({ theme }) => theme.colors.green[300]};
         }
       }
     }

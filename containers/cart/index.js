@@ -63,7 +63,6 @@ const Cart = () => {
         </div>
         <div className="footer">
           <Button
-            colorScheme="orange"
             disabled={total === 0}
             onClick={pushCheckout}
           >

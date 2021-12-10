@@ -10,10 +10,11 @@ import Carousel from "containers/homecarousel";
 import router from "next/router";
 import Image from "next/image";
 import InnerCarouselItem from "containers/homecarousel/styled";
-import { width } from "@mui/system";
 import { isError, useQuery } from "react-query";
 import Backdrop from "components/backdrop";
 import Loading from "components/Loading";
+import { Card,  Grid } from "@mui/material";
+import Filters from "containers/Filters"
 
 const Home = (props) => {
   //const [data, setData] = useState(undefined);
@@ -33,8 +34,11 @@ const Home = (props) => {
     },
     {
       keepPreviousData: true,
+      refetchOnWindowFocus: false,
     }
   );
+
+
 
   // useEffect(async () => {
   //   const firstPageIndex = (currentPage - 1) * pageSize;
@@ -49,8 +53,7 @@ const Home = (props) => {
     <>
       <Head title="Home" />
       <HomeCtx>
-        <Hero title="Headphones" />
-        <Section style={{ paddingTop: "2.5rem", paddingBottom: "2.5rem" }}>
+        <Section style={{ paddingTop: "0", paddingBottom: "0" }}>
           <Carousel>
             <InnerCarouselItem>
               <Image
@@ -90,45 +93,46 @@ const Home = (props) => {
             </InnerCarouselItem>
           </Carousel>
         </Section>
-        {totalCount && (
-          <Section style={{ paddingTop: "0", paddingBottom: "0" }}>
-            <Pagination
-              className="pagination-bar"
-              currentPage={currentPage}
-              totalCount={totalCount}
-              pageSize={pageSize}
-              onPageChange={(page) => setCurrentPage(page)}
-            />
-          </Section>
-        )}
-        {data && (
-          <Section className="products">
-            {data.map((product, idx) => {
-              const { name, _id, default_img, price, category_name } = product;
-              return (
-                <ProductCard
-                  name={name}
-                  image={default_img}
-                  key={_id}
-                  category={category_name}
-                  price={price}
-                  onClickHandler={() => router.push(`/${idx}`)}
-                />
-              );
-            })}
-          </Section>
-        )}
-        {totalCount && (
-          <Section style={{ paddingTop: "0", paddingBottom: "0" }}>
-            <Pagination
-              className="pagination-bar"
-              currentPage={currentPage}
-              totalCount={totalCount}
-              pageSize={pageSize}
-              onPageChange={(page) => setCurrentPage(page)}
-            />
-          </Section>
-        )}
+        <Section>
+          <Grid container spacing={2}>
+            <Grid item sm={5} md={3}  xs={12}>
+              <Filters />
+            </Grid>
+            <Grid item sm={7} md={9} xs={12}>
+              {data && (
+                <Card className="products">
+                  {data.map((product, idx) => {
+                    const { name, _id, default_img, price, category_name } =
+                      product;
+                    return (
+                      <ProductCard
+                        name={name}
+                        image={default_img}
+                        key={_id}
+                        category={category_name}
+                        price={price}
+                        onClickHandler={() =>
+                          router.push(`/${idx + (currentPage - 1) * pageSize}`)
+                        }
+                      />
+                    );
+                  })}
+                </Card>
+              )}
+              {totalCount && (
+                <div style={{ paddingTop: "0", paddingBottom: "2rem" }}>
+                  <Pagination
+                    className="pagination-bar"
+                    currentPage={currentPage}
+                    totalCount={totalCount}
+                    pageSize={pageSize}
+                    onPageChange={(page) => setCurrentPage(page)}
+                  />
+                </div>
+              )}
+            </Grid>
+          </Grid>
+        </Section>
       </HomeCtx>
       {isFetching && (
         <Backdrop>

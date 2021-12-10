@@ -18,7 +18,7 @@ const ProductCard = ({ image, name, price, category, onClickHandler }) => (
     <h6>{ellipsis(name, 16)}</h6>
     <p>{ellipsis(category, 16)}</p>
     <p className="price">{currencyFormatter(+price, "NGN")}</p>
-    <Button colorScheme="orange" onClick={onClickHandler}>
+    <Button onClick={onClickHandler}>
       View Product
     </Button>
   </ProductCardCtx>
