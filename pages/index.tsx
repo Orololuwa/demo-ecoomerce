@@ -144,7 +144,7 @@ const Home = (props) => {
           <Loading />
         </Backdrop>
       )}
-      {error && <div>{error.message}</div>}
+      {error && <div>{error}</div>}
     </>
   );
 };
